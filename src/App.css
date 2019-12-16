@@ -1,39 +1,42 @@
 body {
   background-color: #282c34;
-  color: #09d3ac;
+  color: #fff;
+  font-size: calc(10px + 2vmin);
 }
 
-.App {
-  text-align: center;
-}
+h1, h2, h3 {color: #09d3ac;}
 
-.App-logo {
-  height: 40vmin;
-}
+/* rag colors */
+.rag--g {color: #09d3ac;}
+.rag--a {color: #FFA50B;}
+.rag--r {color: #F90B2C;}
+.svg--check path{fill: #09d3ac;}
+.svg--warn path{fill: #FFA50B;}
+.svg--alert path{fill: #F90B2C;}
 
-.App-header {
+.bold {font-weight: bold;}
+
+.app {text-align: center;}
+
+.logo {height: 40vmin;}
+.logo path {fill: #FFA50B;}
+
+main {
+  margin-left: 100px;
   background-color: #282c34;
   min-height: 100vh;
+}
+
+#idMainHome {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-/* .App-link {
-  color: #09d3ac;
-} */
-
-main hr {
-  margin:1em 0;
 }
 
 .bounceIn {
   animation: bounceIn 2s;
 }
-
 @keyframes bounceIn {
   0% {
     transform: scale(0.1);
@@ -46,4 +49,17 @@ main hr {
   100% {
     transform: scale(1);
   }
+}
+
+/* Remove arrow buttons */
+/* - number inputs - */
+/* -- Chrome, IE -- */
+#idCalc input[type="number"]::-webkit-inner-spin-button, 
+#idCalc input[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+/* -- Firefox -- */
+input[type=number] {
+    -moz-appearance:textfield; 
 }

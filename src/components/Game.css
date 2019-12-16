@@ -1,0 +1,104 @@
+#idMainGame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+@media only screen and (max-width: 575px) {
+  #idGame {
+    margin-left: 100px;
+  }
+}
+
+.board-row {
+  min-width: 189px;
+}
+  
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #282c34;
+  border: 1px solid #999;
+  float: left;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 64px;
+  height: 64px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 64px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.square:focus {
+  outline: none;
+}
+
+.token {
+  height: 60px;
+  width: 60px;
+}
+.token--win {
+  transition: .1s;
+  filter:drop-shadow(0px 0px 6px #09d3ac);
+}
+.token path {
+  fill: #fff;
+}
+
+/* .kbd-navigation .square:focus {
+  background: #ddd;
+} */
+
+.game {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+}
+
+
+@media only screen and (max-width: 575px) { 
+  .game {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+.game-board {
+  grid-column-start: 2;
+}
+
+.game-info {
+  margin-left: 20px;
+  min-width: 189px;
+  text-align: left;
+}
+
+.game-info button {
+  width: 100%;
+  text-align: left;
+}
+
+.game-info ol, .game-info ul {
+  padding-left: 30px;
+  margin:0;
+}
+
+.status--over {
+  transition: .1s;
+  color: #fff;
+  filter:drop-shadow(0px 0px 6px #09d3ac);
+}

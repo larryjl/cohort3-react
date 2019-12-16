@@ -1,62 +1,55 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import {ReactComponent as Logo} from './logo.svg';
 import './App.css';
-import Nav from './components/NavComp';
-import Game from './components/TicComp';
-import Transform from './components/TransformComp';
-import Accounts from './components/AccountsComp';
-import Cities from './components/CitiesComp';
+import Nav from './components/Nav';
+import Game from './components/Game';
+import Transform from './components/Transform';
+import Accounts from './components/Accounts';
+import Cities from './components/Cities';
 
 class App extends Component {
+
   constructor() {
     super();
     this.state = {
+      activePage: "home"
     };
-  }
+  };
 
-  render () {
+  setPage = (page) => {
+    this.setState({
+      activePage: page
+    });
+  };
+
+  render() {
+    let main;
+    switch(this.state.activePage){
+      case "game":
+        main = <Game/>
+        break;
+      case "transform":
+        main = <Transform/>
+        break;
+      case "accounts":
+        main = <Accounts/>
+        break;
+      case "cities":
+        main = <Cities/>
+        break;
+      default: // home
+        main = 
+          <main id="idMainHome">
+            <Logo className="logo bounceIn" alt="logo" />
+          </main>;
+    };
     return (
-      <div className="App">
-        <a name="top">
+      <div className="app">
         <Nav
+          setPage={this.setPage}
+          activePage={this.state.activePage}
         />
-        </a>
-        <header className="App-header svgStyle">
-          <img src={logo} className="App-logo bounceIn" alt="logo" />
-          {/* <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a> */}
-        </header>
-        <main>
-          <hr/>
-          <a name="game">
-            <Game
-            />
-          </a>
-          <hr/>
-          <a name="transform">
-            <Transform
-            />
-          </a>
-          <hr/>
-          <a name="accounts">
-            <Accounts
-            />
-          </a>
-          <hr/>
-          <a name="cities">
-            <Cities
-            />
-          </a>
-        </main>
+        {main}
         <footer>
         </footer>
       </div>
