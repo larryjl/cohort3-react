@@ -16,9 +16,11 @@ class Accounts extends React.Component {
       message: null,
       messageType: null,
       accountName: '',
-      amount: 0,
+      amount: '',
     };
     this.controller = new AccountController();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   roundDown(num, digits) {
@@ -50,7 +52,7 @@ class Accounts extends React.Component {
   clearInputs() {
     this.setState({
       accountName: '',
-      amount: 0,
+      amount: '',
       action: null
     });
   }
@@ -125,6 +127,20 @@ class Accounts extends React.Component {
         {label}
       </button>
   )}
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+
+  handleBlur(event) {
+    const stateProp = event.target.name;
+    this.setState({
+      [stateProp]: (stateProp==='amount')?
+        this.roundDown(event.target.value, 2):
+        event.target.value.trim()
+    });
+  }
 
   render() {
 
@@ -198,10 +214,10 @@ class Accounts extends React.Component {
           <div className="input--row">
             <span className="input--caption">Account Name: </span>
             <input type="text" 
-              value={this.state.accountName} 
-              onChange={event => {this.setState({
-                accountName: event.target.value.trim()
-              })}}
+              value = {this.state.accountName}
+              name = 'accountName'
+              onChange={this.handleChange}
+              onBlur = {this.handleBlur}
             ></input>
           </div>
         :null}
@@ -214,9 +230,9 @@ class Accounts extends React.Component {
             <span className="input--prefix">$</span>
             <input type="number" min={0} placeholder={0.00} step={0.01} 
               value={this.state.amount} 
-              onChange={event => {this.setState({
-                amount: this.roundDown(event.target.value, 2)
-              })}}
+              name = 'amount'
+              onChange={this.handleChange}
+              onBlur={this.handleBlur}
             ></input>
           </div>
         :null}
