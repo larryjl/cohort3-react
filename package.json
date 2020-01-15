@@ -12,7 +12,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cov": "react-scripts test --coverage --runInBand --watchAll=false; xdg-open coverage/lcov-report/index.html"
+    "cov": "react-scripts test --coverage --runInBand --watchAll=false; xdg-open coverage/lcov-report/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
