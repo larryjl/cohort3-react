@@ -1,5 +1,4 @@
 body {
-  background-color: #282c34;
   color: #fff;
   font-size: calc(10px + 2vmin);
 }
@@ -17,13 +16,17 @@ h1, h2, h3 {color: #09d3ac;}
 .bold {font-weight: bold;}
 
 .app {text-align: center;}
-
-.logo {height: 40vmin;}
-.logo path {fill: #FFA50B;}
+.app.light {
+  background-color: gainsboro;
+  color: #282c34;
+}
+.app.dark {
+  background-color: #282c34;
+  color: #fff;
+}
 
 main {
   margin-left: 100px;
-  background-color: #282c34;
   min-height: 100vh;
 }
 
@@ -34,6 +37,21 @@ main {
   justify-content: center;
 }
 
+.logo {
+  width: 50vw;
+}
+.logo--orbit path {
+  stroke: #FFA50B;
+  stroke-width: 2px;
+  fill: none;
+  stroke-dasharray: 100px 300px;
+  animation: orbit 8s infinite linear;
+}
+.logo--orbit.light path {
+  stroke: #F90B2C;
+}
+@keyframes orbit { to { stroke-dashoffset: 400px;}}
+
 .bounceIn {
   animation: bounceIn 2s;
 }
@@ -43,7 +61,7 @@ main {
     opacity: 0;
   }
   60% {
-    transform: scale(1.2);
+    transform: scale(1.4);
     opacity: 1;
   }
   100% {

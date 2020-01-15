@@ -1,0 +1,41 @@
+#container {
+    display: flex;
+}
+#container > div {
+    padding: 10px;
+    min-width: calc(50% - 20px);
+}
+.button.red path {
+    fill: #F90B2C;
+}
+.button.amber path {
+    fill: #FFA50B;
+}
+.button.green path {
+    fill: #09d3ac;
+}
+.card {
+    height: 80px;
+    width: 80px;
+}
+.card path {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 1px;
+}
+.card.red path {
+    filter:drop-shadow(0px 0px 2px #F90B2C);
+}
+.card.amber path {
+    filter:drop-shadow(0px 0px 2px #FFA50B);
+}
+.card.green path {
+    filter:drop-shadow(0px 0px 2px #09d3ac);
+}
+#cardStack {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
