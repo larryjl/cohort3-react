@@ -117,7 +117,7 @@ def load():
 	# return "<h1>EvolveU test</h1> <h2>" + str(len(data)) + " records Loaded</h2>"
 	return jsonify(list(data.values())), 200
 
-@app.route("/loadset", methods = ['GET'])
+@app.route("/loadset", methods = ['GET', 'POST'])
 def loadset():
 	global data
 	print("data1:", data)
@@ -147,7 +147,7 @@ def clear():
 @app.route("/test", methods = ['POST','GET'])
 def test():
 	try :
-		content = request.get_json()
+		# content = request.get_json()
 		# print('in /test request: ',request)
 		# print('in /test path: ',request.path)
 		# print('in /test form: ',request.form)
