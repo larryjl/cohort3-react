@@ -1,3 +1,7 @@
+See the development history at https://github.com/larryjl/cohort3/blob/master/react-02/
+Create React App readme below:
+
+---
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
